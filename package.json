@@ -28,7 +28,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "prepare": "husky install",
-    "lint:js": "eslint --ext \".js,.ts,.vue\" --ignore-path .gitignore ."
+    "lint:js": "eslint --ext \".js,.ts,.vue\" --ignore-path .gitignore .",
+    "lintfix": "prettier --write --list-different . && yarn lint:js --fix"
 
   },
   "eslintConfig": {
