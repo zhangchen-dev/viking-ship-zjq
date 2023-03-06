@@ -27,10 +27,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "prepare": "husky install",
-    "lint:js": "eslint --ext \".js,.ts,.vue\" --ignore-path .gitignore .",
-    "lintfix": "prettier --write --list-different . && yarn lint:js --fix"
-
+    "prepare": "husky install"
   },
   "eslintConfig": {
     "extends": [
@@ -51,8 +48,6 @@
     ]
   },
   "devDependencies": {
-    "@commitlint/cli": "^17.4.4",
-    "@commitlint/config-conventional": "^17.4.4",
     "husky": "^8.0.0"
   },
   "lint-staged": {
