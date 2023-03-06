@@ -11,6 +11,7 @@ const root = ReactDOM.createRoot(
 //大法师打发斯蒂芬
 //大法师打发斯蒂芬
 //大法师打发斯蒂芬
+const a1=1,b1=2;
 const a=1,b=2;
 let c=a+b
 var aa='1111'
