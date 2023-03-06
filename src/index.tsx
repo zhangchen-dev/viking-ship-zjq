@@ -8,8 +8,12 @@ const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 //大法师打发斯蒂芬
+//大法师打发斯蒂芬
+//大法师打发斯蒂芬
+//大法师打发斯蒂芬
 const a=1,b=2;
 let c=a+b
+var aa='1111'
 root.render(
   <React.StrictMode>
     <App />
