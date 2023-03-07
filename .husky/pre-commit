@@ -1,4 +1,10 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-npx --no-install lint-staged
+# npx prettier --write ./
+# npx prettier --checked ./
+# echo 'prettier'
+
+# npx eslint ./
+# echo 'eslint'
+

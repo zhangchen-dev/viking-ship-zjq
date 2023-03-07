@@ -17,12 +17,13 @@
   color: $color;
   background: $background;
   border-color: $border;
-  &:hover{
-    color:$hover-color;
+  &:hover {
+    color: $hover-color;
     border-color: $hover-border;
   }
-  &:focus,&.focus{
-    color:$hover-color;
+  &:focus,
+  &.focus {
+    color: $hover-color;
     border-color: $hover-border;
   }
 }
