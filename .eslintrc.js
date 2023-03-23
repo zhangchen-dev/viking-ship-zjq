@@ -19,12 +19,8 @@ module.exports = {
         },
         ecmaVersion: 2018,
         sourceType: 'module',
-
-        // project: ['./tsconfig.json'],
     },
     parser: '@typescript-eslint/parser',
-    plugins: ['@typescript-eslint', 'react', 'react-hooks'],
-    // plugins: ['typescript'],
     rules: {
         '@typescript-eslint/member-delimiter-style': 'off',
         '@typescript-eslint/explicit-module-boundary-types': 'off',
