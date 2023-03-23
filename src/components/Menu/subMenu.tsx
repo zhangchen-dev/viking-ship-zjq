@@ -60,7 +60,6 @@ const SubMenu: React.FC<SubMenuProps> = ({ index, title, children, className }) 
             if (childrenElement.type.displayName === 'MenuItem') {
                 return childrenElement;
             }
-            
         });
         return (
             <CSSTransition
