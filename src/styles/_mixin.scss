@@ -2,28 +2,57 @@
 
 // }
 @mixin button-size($padding-x, $padding-y, $font-size, $border-raduis) {
-  padding: $padding-x $padding-y;
-  font-size: $font-size;
-  border-radius: $border-raduis;
+    padding: $padding-x $padding-y;
+    font-size: $font-size;
+    border-radius: $border-raduis;
 }
 @mixin button-style(
-  $background,
-  $border,
-  $color,
-  $hover-background: lighten($background, 7.5%),
-  $hover-border: lighten($border, 10%),
-  $hover-color: $color
+    $background,
+    $border,
+    $color,
+    $hover-background: lighten($background, 7.5%),
+    $hover-border: lighten($border, 10%),
+    $hover-color: $color
 ) {
-  color: $color;
-  background: $background;
-  border-color: $border;
-  &:hover {
-    color: $hover-color;
-    border-color: $hover-border;
-  }
-  &:focus,
-  &.focus {
-    color: $hover-color;
-    border-color: $hover-border;
-  }
+    color: $color;
+    background: $background;
+    border-color: $border;
+    &:hover {
+        color: $hover-color;
+        border-color: $hover-border;
+    }
+    &:focus,
+    &.focus {
+        color: $hover-color;
+        border-color: $hover-border;
+    }
+}
+// 利用组件化实现animation动画封装
+@mixin zoom-animation(
+    $direction: 'top',
+    $scaleStart: scaleY(0),
+    $scaleEnd: scaleY(1),
+    $orgin: center top
+) {
+    .zoom-in-#{$direction}-enter {
+        opacity: 0;
+        transform: $scaleStart;
+    }
+    .zoom-in-#{$direction}-enter-active {
+        opacity: 1;
+        transform: $scaleEnd;
+        transition: transform 300ms cubic-bezier(0.23, 1, 0.32, 1) 100ms,
+            opacity 300ms cubic-bezier(0.23, 1, 0.32, 1) 100ms;
+        transform-origin: $orgin;
+    }
+    .zoom-in-#{$direction}-exit {
+        opacity: 1;
+    }
+    .zoom-in-#{$direction}-exit-active {
+        opacity: 0;
+        transform: $scaleStart;
+        transition: transform 300ms cubic-bezier(0.23, 1, 0.32, 1) 100ms,
+            opacity 300ms cubic-bezier(0.23, 1, 0.32, 1) 100ms;
+        transform-origin: $orgin;
+    }
 }

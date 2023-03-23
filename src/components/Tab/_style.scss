@@ -1,0 +1,29 @@
+// 使用变量循环遍历实现
+$sizes: 40px 50px, 60px;
+// 使用map数组实现
+$theme-colors: (
+    // 'primary': $primary,
+    // 其中$primary是已经定义好的变量了、
+);
+
+//使用方式
+@each $key, $val in $theme-colors {
+    .vikinig-#{$key} {
+        color: $val;
+    }
+}
+
+// 动画效果 见Menu组件
+
+.viking-tabs {
+    width: 500px;
+    height: 32px;
+    line-height: 32px;
+    background-color: #ccc;
+    display: flex;
+    justify-content: space-around;
+}
+.viking-tab-item {
+    height: 32px;
+    background-color: pink;
+}
