@@ -44,12 +44,12 @@ module.exports = {
         //     },
         // ],
         'no-useless-constructor': 'off',
-        'no-console': [
-            'error',
-            {
-                allow: ['warn', 'error'],
-            },
-        ],
+        // 'no-console': [
+        //     'error',
+        //     {
+        //         allow: ['warn', 'error'],
+        //     },
+        // ],
         'space-before-blocks': 2,
         'keyword-spacing': [
             2,
