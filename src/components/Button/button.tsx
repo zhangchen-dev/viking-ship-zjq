@@ -2,7 +2,7 @@
  * @Author: 张佳琪(10070263) zhangjq-l@glodon.com
  * @Date: 2023-02-14 14:58:14
  * @LastEditors: 张佳琪(10070263) zhangjq-l@glodon.com
- * @LastEditTime: 2023-04-04 17:24:40
+ * @LastEditTime: 2023-04-06 14:28:22
  * @FilePath: \viking-ship\src\components\Button\button.tsx
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -24,7 +24,9 @@ export enum ButtonType {
 
 // 按钮的所有相关属性
 interface BaseButtonProps {
+    /** 设置button的类名 */
     className?: string;
+    /** 设置button是否可点击 */
     disabled?: boolean;
     size?: ButtonSize | string;
     btnType?: ButtonType | string;
@@ -37,6 +39,13 @@ type NativeButtonProps = BaseButtonProps & React.ButtonHTMLAttributes<HTMLElemen
 type AnchorButtonProps = BaseButtonProps & React.AnchorHTMLAttributes<HTMLElement>;
 
 export type ButtonProps = Partial<NativeButtonProps & AnchorButtonProps>;
+/**
+ * 页面中标常用的点击按钮元素
+ * ### 引用方法
+ * ````js
+ * import {Button} from 'viking-ship'
+ * ```
+ */
 export const Button: React.FC<ButtonProps> = (props) => {
     const { className, btnType, disabled, size, children, href, ...restProps } = props;
     // 添加组件的默认类名

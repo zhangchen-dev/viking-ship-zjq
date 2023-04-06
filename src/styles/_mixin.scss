@@ -56,3 +56,10 @@
         transform-origin: $orgin;
     }
 }
+@mixin input-style(
+    $width:'100%',
+    $height:'39px'
+){
+    width: $width;
+    height: $height;
+}

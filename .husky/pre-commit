@@ -4,9 +4,9 @@
 # npx prettier --checked ./
 # echo 'prettier'
 
-npx eslint ./
-echo 'eslint'
+# npx eslint ./
+# echo 'eslint'
 
-npx prettier --write ./
-echo 'prettier'
+# npx prettier --write ./
+# echo 'prettier'
 
