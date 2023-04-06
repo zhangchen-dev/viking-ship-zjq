@@ -2,7 +2,7 @@
  * @Author: 张佳琪(10070263) zhangjq-l@glodon.com
  * @Date: 2023-02-16 15:44:39
  * @LastEditors: 张佳琪(10070263) zhangjq-l@glodon.com
- * @LastEditTime: 2023-03-22 16:06:42
+ * @LastEditTime: 2023-04-04 17:54:04
  * @FilePath: \viking-ship\src\components\Menu\menu.tsx
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -29,7 +29,7 @@ interface IMenuContext {
 
 export const MenuContext = createContext<IMenuContext>({ index: 0 });
 
-const Menu: React.FC<MenuProps> = (props) => {
+export const Menu: React.FC<MenuProps> = (props) => {
     const { className, defaultIndex, mode, style, onSelect, children } = props;
     const classes = cx('viking-menu', className, {
         'menu-vertical': mode === 'vertical',

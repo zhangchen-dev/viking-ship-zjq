@@ -12,7 +12,7 @@ module.exports = {
         node: true,
         browser: true,
     },
-    extends: ['plugin:@typescript-eslint/recommended'],
+    extends: ['plugin:@typescript-eslint/recommended', 'plugin:storybook/recommended'],
     parserOptions: {
         ecmaFeatures: {
             jsx: true,
@@ -44,7 +44,12 @@ module.exports = {
         //     },
         // ],
         'no-useless-constructor': 'off',
-        'no-console': ['error', { allow: ['warn', 'error'] }],
+        'no-console': [
+            'error',
+            {
+                allow: ['warn', 'error'],
+            },
+        ],
         'space-before-blocks': 2,
         'keyword-spacing': [
             2,
@@ -59,11 +64,28 @@ module.exports = {
         'space-in-parens': ['error', 'never'],
         'array-bracket-spacing': ['error', 'never'],
         'block-spacing': 2,
-        'comma-spacing': ['error', { before: false, after: true }],
+        'comma-spacing': [
+            'error',
+            {
+                before: false,
+                after: true,
+            },
+        ],
         'computed-property-spacing': ['error', 'never'],
         'func-call-spacing': ['error', 'never'],
-        'key-spacing': ['error', { beforeColon: false }],
-        'no-multiple-empty-lines': ['error', { max: 2, maxEOF: 0 }],
+        'key-spacing': [
+            'error',
+            {
+                beforeColon: false,
+            },
+        ],
+        'no-multiple-empty-lines': [
+            'error',
+            {
+                max: 2,
+                maxEOF: 0,
+            },
+        ],
         'comma-style': ['error', 'last'],
         'comma-dangle': ['error', 'only-multiline'],
         semi: ['error', 'always'],
@@ -72,9 +94,20 @@ module.exports = {
         'nonblock-statement-body-position': ['error', 'beside'],
         'brace-style': 'error',
         'no-else-return': 'error',
-        'spaced-comment': ['error', 'always', { markers: ['/'] }],
+        'spaced-comment': [
+            'error',
+            'always',
+            {
+                markers: ['/'],
+            },
+        ],
         camelcase: 'error',
-        'new-cap': ['error', { newIsCap: true }],
+        'new-cap': [
+            'error',
+            {
+                newIsCap: true,
+            },
+        ],
         'prefer-const': 'error',
         'no-const-assign': 'error',
         'no-multi-assign': 'error',

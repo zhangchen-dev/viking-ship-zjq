@@ -1,3 +1,11 @@
+/*
+ * @Author: 张佳琪(10070263) zhangjq-l@glodon.com
+ * @Date: 2023-03-03 15:43:38
+ * @LastEditors: 张佳琪(10070263) zhangjq-l@glodon.com
+ * @LastEditTime: 2023-04-04 17:53:45
+ * @FilePath: \viking-ship\src\components\Menu\subMenu.tsx
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ */
 import React, { useContext, FunctionComponentElement, useState } from 'react';
 import classNames from 'classnames';
 import { MenuContext } from './menu';
@@ -11,7 +19,7 @@ export interface SubMenuProps {
     children: any;
 }
 
-const SubMenu: React.FC<SubMenuProps> = ({ index, title, children, className }) => {
+export const SubMenu: React.FC<SubMenuProps> = ({ index, title, children, className }) => {
     const [menuOpen, setMenuOpen] = useState<boolean>(false);
     const context = useContext(MenuContext);
     const classes = classNames('menu-item submenu-item', className, {

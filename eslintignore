@@ -2,3 +2,5 @@ build/*.js
 assets
 dist
 node_modules/
+src
+history
