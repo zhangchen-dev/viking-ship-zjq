@@ -1,9 +1,12 @@
-.viking-lg{
-    @include input-style(120px,35px);
+.viking-lg {
+    @include input-style(120px, 35px);
 }
-.viking-sm{
-    @include input-style(80px,25px)
+.viking-sm {
+    @include input-style(80px, 25px);
 }
-.input-disabled{
+.input-disabled {
     cursor: not-allowed;
+}
+.item-highlighted {
+    background-color: skyblue;
 }
