@@ -2,7 +2,7 @@
  * @Author: 张佳琪(10070263) zhangjq-l@glodon.com
  * @Date: 2023-02-14 17:01:50
  * @LastEditors: 张佳琪(10070263) zhangjq-l@glodon.com
- * @LastEditTime: 2023-04-06 15:22:33
+ * @LastEditTime: 2023-04-10 11:48:26
  * @FilePath: \viking-ship\src\App.tsx
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -33,6 +33,7 @@ import {
 } from 'react';
 import Trasition from './components/Transiton/transition';
 import { Input } from './components/Input';
+import { SimpleComplete } from './components/Input/autoComplete.stories';
 function App() {
     const nodeRef = useRef(null);
 
@@ -104,6 +105,7 @@ function App() {
             选项卡312122332422322
           </TabItem>
         </Tabs> */}
+        <SimpleComplete/>
             </header>
         </div>
     );

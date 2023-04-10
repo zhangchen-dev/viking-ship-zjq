@@ -2,7 +2,7 @@
  * @Author: 张佳琪(10070263) zhangjq-l@glodon.com
  * @Date: 2023-04-06 16:44:40
  * @LastEditors: 张佳琪(10070263) zhangjq-l@glodon.com
- * @LastEditTime: 2023-04-06 17:17:55
+ * @LastEditTime: 2023-04-10 15:57:13
  * @FilePath: \viking-ship\src\components\Input\Autocomplete.tsx
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -27,34 +27,82 @@
 // fetchSuggestions={handleChange}
 // onSelect={handleSelcet} />
 
-import React, { useState, ChangeEvent } from 'react';
+import React, { useState, ChangeEvent, ReactElement, useEffect } from 'react';
 import Input, { InputProps } from 'antd/es/input';
+import useDebounce from '../../hooks/useDebounce';
 
+interface DataSourceObject {
+    value: string;
+    number: string;
+}
+export type DataSourceType = DataSourceObject;
 export interface AutocompleteProps extends Omit<InputProps, 'onSelect'> {
-    fetchSuggestions: (str: string) => string[];
-    onSelect?: (item: string) => void;
+    fetchSuggestions: (str: string) => DataSourceType[];
+    onSelect?: (item: DataSourceType) => void;
+    // 自定义模板
+    renderOption?: (item: DataSourceType) => ReactElement;
 }
 
 export const AutoComplete: React.FC<AutocompleteProps> = (props) => {
-    const { fetchSuggestions, value, onSelect, ...resProps } = props;
+    const { fetchSuggestions, value, onSelect, renderOption, ...resProps } = props;
 
-    const [ChangeEvent, setInputValue] = useState(value);
-    const [suggestions, setSuggestions] = useState<string[]>([]);
-    // console.log(suggestions, '---==----');
+    const [inputValue, setInputValue] = useState(value as string);
+    const [suggestions, setSuggestions] = useState<DataSourceType[]>([]);
+
+    const debounceValue = useDebounce(inputValue, 500);
+
+    useEffect(() => {
+        if (debounceValue) {
+            const results = fetchSuggestions(debounceValue);
+            // 此处加入异步的操作
+            if (results instanceof Promise) {
+                results.then((data) => {
+                    setSuggestions(data);
+                });
+            } else {
+                setSuggestions(results);
+            }
+        } else {
+            setSuggestions([]);
+        }
+    }, [debounceValue]);
+
+    console.log(suggestions, '---==----');
 
     const handlerChange = (e: ChangeEvent<HTMLInputElement>) => {
         const value = e.target.value.trim();
         setInputValue(value);
-        if (value) {
-            const results = fetchSuggestions(value);
-            setSuggestions(results);
-        } else {
-            setSuggestions([]);
+    };
+    const handlerSelect = (item: DataSourceType) => {
+        setInputValue(item.value);
+        setSuggestions([]);
+        if (onSelect) {
+            // 调用外部传入的onSelect方法
+            onSelect(item);
         }
+    };
+    // 根据是否存在自定义模板选择渲染情况
+    const renderTemplate = (item: DataSourceType) => {
+        return renderOption ? renderOption(item) : item.value;
+    };
+
+    const generateDeropDown = () => {
+        return (
+            <ul>
+                {suggestions.map((item, index) => {
+                    return (
+                        <li key={index} onClick={() => handlerSelect(item)}>
+                            {renderTemplate(item)}
+                        </li>
+                    );
+                })}
+            </ul>
+        );
     };
     return (
         <div className="viking-auto-complete">
-            <Input value={ChangeEvent} {...resProps} onChange={handlerChange} />
+            <Input value={inputValue} {...resProps} onChange={handlerChange} />
+            {suggestions.length > 0 && generateDeropDown()}
         </div>
     );
 };
